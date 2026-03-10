@@ -55,7 +55,6 @@ export default function ProductPage() {
             className="product-visual-img"
           />
           <div className="product-visual-overlay" />
-          <div className="product-visual-num">{product.num}</div>
 
           {/* Переключатель 1 / 2 */}
           {hasImages && (
