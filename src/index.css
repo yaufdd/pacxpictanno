@@ -583,6 +583,19 @@ body::after {
   color: var(--gray-light);
 }
 
+.bs-hover-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.bs-card:hover .bs-hover-layer { opacity: 1; }
+
 .bs-badge {
   position: absolute;
   top: 0; left: 0;
@@ -632,6 +645,19 @@ body::after {
   transform: scale(1.06);
   filter: grayscale(0%) contrast(1.12) brightness(1);
 }
+
+.lb-hover-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lb-item:hover .lb-hover-layer { opacity: 1; }
 
 /* ── PHILOSOPHY ──────────────────────────────── */
 #philosophy {

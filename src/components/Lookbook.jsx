@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { lookbookImages } from '../data/products'
 import useReveal from '../hooks/useReveal'
 
@@ -15,9 +16,14 @@ export default function Lookbook() {
         </h2>
       </div>
       <div ref={gridRef} className="lookbook-grid reveal">
-        {lookbookImages.map((src, i) => (
+        {lookbookImages.map((item, i) => (
           <div key={i} className="lb-item">
-            <img src={src} alt={`Lookbook ${i + 1}`} loading="lazy" />
+            <img src={item.src} alt={`Lookbook ${i + 1}`} loading="lazy" />
+            <div className="lb-hover-layer">
+              <Link to={`/product/${item.productId}`} className="product-action">
+                Смотреть
+              </Link>
+            </div>
           </div>
         ))}
       </div>

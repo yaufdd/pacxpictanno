@@ -30,7 +30,7 @@ function BsCard({ item, delay }) {
   const ref = useReveal(delay)
 
   return (
-    <Link ref={ref} to={`/product/${item.id}`} className="bs-card reveal">
+    <div ref={ref} className="bs-card reveal">
       <div className="bs-img">
         <img src={item.image} alt={item.name} loading="lazy" />
       </div>
@@ -39,6 +39,11 @@ function BsCard({ item, delay }) {
         <div className="bs-price">{item.price} ₽</div>
       </div>
       {item.badge && <div className="bs-badge">{item.badge}</div>}
-    </Link>
+      <div className="bs-hover-layer">
+        <Link to={`/product/${item.id}`} className="product-action">
+          Смотреть
+        </Link>
+      </div>
+    </div>
   )
 }
