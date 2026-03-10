@@ -1,13 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { allProducts, PHONE, PHONE_LINK, TELEGRAM } from '../data/products'
 
 export default function ProductPage() {
   const { id } = useParams()
   const product = allProducts.find((p) => p.id === id)
+  const [activeIdx, setActiveIdx] = useState(0)
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    setActiveIdx(0)
     if (product) document.title = `${product.name} — РАСХРИСТАННО`
     return () => { document.title = 'РАСХРИСТАННО — Андеграунд дропы' }
   }, [product])
@@ -28,6 +30,9 @@ export default function ProductPage() {
     )
   }
 
+  const hasGallery = product.images && product.images.length > 1
+  const currentSrc = hasGallery ? product.images[activeIdx].src : product.image
+
   const descLines = product.desc.split('\n').map((line, i) => (
     <span key={i}>{line}<br /></span>
   ))
@@ -42,9 +47,29 @@ export default function ProductPage() {
       <div className="product-page">
         {/* ── Фото ── */}
         <div className="product-visual">
-          <img src={product.image} alt={product.name} />
+          <img
+            key={currentSrc}
+            src={currentSrc}
+            alt={product.name}
+            className="product-visual-img"
+          />
           <div className="product-visual-overlay" />
           <div className="product-visual-num">{product.num}</div>
+
+          {/* Переключатель вид спереди / сзади */}
+          {hasGallery && (
+            <div className="img-switcher">
+              {product.images.map((img, i) => (
+                <button
+                  key={i}
+                  className={`img-switcher-btn${activeIdx === i ? ' active' : ''}`}
+                  onClick={() => setActiveIdx(i)}
+                >
+                  {img.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* ── Инфо ── */}
@@ -69,6 +94,22 @@ export default function ProductPage() {
           </div>
 
           <p className="product-detail-desc">{descLines}</p>
+
+          {/* Миниатюры если есть галерея */}
+          {hasGallery && (
+            <div className="img-thumbs">
+              {product.images.map((img, i) => (
+                <button
+                  key={i}
+                  className={`img-thumb${activeIdx === i ? ' active' : ''}`}
+                  onClick={() => setActiveIdx(i)}
+                >
+                  <img src={img.src} alt={img.label} />
+                  <span>{img.label}</span>
+                </button>
+              ))}
+            </div>
+          )}
 
           <div className="order-block">
             <div className="order-label">// Заказать по телефону</div>

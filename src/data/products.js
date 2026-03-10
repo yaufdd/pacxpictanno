@@ -13,7 +13,11 @@ export const dropProducts = [
     price: '4 500',
     stock: 3,
     stockLabel: '3 осталось',
-    image: '/catalog/jumper/IMG_1579.jpeg',
+    image: '/catalog/jumper/jumper_separated/front.png',
+    images: [
+      { label: '1', src: '/catalog/jumper/jumper_separated/front.png' },
+      { label: '2', src: '/catalog/jumper/jumper_separated/back.png' },
+    ],
     desc: 'Оверсайз джемпер ручной вязки. Единственный экземпляр.\nМатериал: 100% шерсть. Цвет: тёмно-серый.\nМерки уточняются при заказе.',
     tags: ['Ручная работа', 'Единичный экземпляр', 'Оверсайз', 'Джемпер'],
     num: '001',

@@ -929,16 +929,6 @@ footer {
   background: var(--graphite);
 }
 
-.product-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(10%) contrast(1.1) brightness(0.9);
-  transition: filter 0.5s;
-}
-
-.product-visual:hover img { filter: grayscale(0%) contrast(1.1) brightness(1); }
 
 .product-visual-overlay {
   position: absolute;
@@ -1177,6 +1167,110 @@ footer {
   border: 1px solid var(--gray-dark);
   padding: 6px 12px;
 }
+
+/* ── IMAGE SWITCHER (product page) ──────────── */
+.product-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(10%) contrast(1.1) brightness(0.9);
+  transition: opacity 0.35s ease, filter 0.5s;
+  animation: imgFadeIn 0.35s ease;
+}
+
+@keyframes imgFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.product-visual:hover .product-visual-img {
+  filter: grayscale(0%) contrast(1.1) brightness(1);
+}
+
+.img-switcher {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  z-index: 10;
+}
+
+.img-switcher-btn {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  background: rgba(8,8,8,0.7);
+  border: 1px solid var(--gray-dark);
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: all 0.25s;
+  backdrop-filter: blur(8px);
+}
+
+.img-switcher-btn:hover {
+  color: var(--white);
+  border-color: var(--gray-mid);
+}
+
+.img-switcher-btn.active {
+  background: var(--red-bright);
+  border-color: var(--red-bright);
+  color: var(--white);
+}
+
+/* Миниатюры под описанием */
+.img-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.img-thumb {
+  flex: 1;
+  background: var(--graphite);
+  border: 1px solid var(--gray-dark);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.25s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.img-thumb:hover { border-color: var(--gray-mid); }
+
+.img-thumb.active { border-color: var(--red-bright); }
+
+.img-thumb img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%) brightness(0.85);
+  transition: filter 0.3s;
+}
+
+.img-thumb:hover img,
+.img-thumb.active img { filter: grayscale(0%) brightness(1); }
+
+.img-thumb span {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  padding: 8px;
+  display: block;
+  text-align: center;
+  transition: color 0.25s;
+}
+
+.img-thumb.active span { color: var(--red-bright); }
 
 /* ── NOT FOUND ───────────────────────────────── */
 .not-found {
