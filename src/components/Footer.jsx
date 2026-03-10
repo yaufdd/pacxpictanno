@@ -13,29 +13,15 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <div className="footer-col-title">Каталог</div>
-          <ul className="footer-links">
-            <li><a href="#">Футболки</a></li>
-            <li><a href="#">Свитшоты</a></li>
-            <li><a href="#">Джемперы</a></li>
-            <li><a href="#">Аксессуары</a></li>
-          </ul>
-        </div>
-        <div>
           <div className="footer-col-title">Бренд</div>
           <ul className="footer-links">
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Lookbook</a></li>
-            <li><a href="#">Дропы</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><a href="#philosophy">О нас</a></li>
+            <li><a href="#new-drop">Дропы</a></li>
           </ul>
         </div>
         <div>
           <div className="footer-col-title">Информация</div>
           <ul className="footer-links">
-            <li><a href="#">Доставка</a></li>
-            <li><a href="#">Возврат</a></li>
-            <li><a href="#">Уход за вещами</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
         </div>

@@ -16,7 +16,6 @@ export default function Nav() {
       <ul className="nav-links">
         <li><a href="#new-drop">Дроп</a></li>
         <li><a href="#bestsellers">Каталог</a></li>
-        <li><a href="#lookbook">Lookbook</a></li>
         <li><a href="#philosophy">О бренде</a></li>
       </ul>
     </nav>

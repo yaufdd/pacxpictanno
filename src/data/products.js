@@ -1,8 +1,8 @@
 // ── Контакты ────────────────────────────────────────────────────────
 // Замени на свой номер и ссылку на Telegram
-export const PHONE = '+7 (999) 000-00-00'
-export const PHONE_LINK = 'tel:+79990000000'
-export const TELEGRAM = 'https://t.me/'
+export const PHONE = '+7 916 971-40-00'
+export const PHONE_LINK = 'tel:+79169714000'
+export const TELEGRAM = 'https://t.me/yaufdd'
 
 // ── Товары нового дропа ──────────────────────────────────────────────
 export const dropProducts = [
