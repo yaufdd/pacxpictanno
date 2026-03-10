@@ -30,8 +30,9 @@ export default function ProductPage() {
     )
   }
 
-  const hasGallery = product.images && product.images.length > 1
-  const currentSrc = hasGallery ? product.images[activeIdx].src : product.image
+  const hasImages = product.images && product.images.length > 0
+  const hasMultiple = product.images && product.images.length > 1
+  const currentSrc = hasImages ? product.images[activeIdx].src : product.image
 
   const descLines = product.desc.split('\n').map((line, i) => (
     <span key={i}>{line}<br /></span>
@@ -56,8 +57,8 @@ export default function ProductPage() {
           <div className="product-visual-overlay" />
           <div className="product-visual-num">{product.num}</div>
 
-          {/* Переключатель вид спереди / сзади */}
-          {hasGallery && (
+          {/* Переключатель 1 / 2 */}
+          {hasImages && (
             <div className="img-switcher">
               {product.images.map((img, i) => (
                 <button
@@ -95,8 +96,8 @@ export default function ProductPage() {
 
           <p className="product-detail-desc">{descLines}</p>
 
-          {/* Миниатюры если есть галерея */}
-          {hasGallery && (
+          {/* Миниатюры — всегда если есть images */}
+          {hasImages && (
             <div className="img-thumbs">
               {product.images.map((img, i) => (
                 <button
