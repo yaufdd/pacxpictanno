@@ -32,7 +32,7 @@ function BsCard({ item, delay }) {
   return (
     <div ref={ref} className="bs-card reveal">
       <div className="bs-img">
-        <img src={item.image} alt={item.name} loading="lazy" />
+        <img src={`${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')}`} alt={item.name} loading="lazy" />
       </div>
       <div className="bs-info">
         <div className="bs-name">{item.name}</div>
