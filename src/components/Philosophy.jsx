@@ -44,7 +44,7 @@ export default function Philosophy() {
 
       <div ref={imgRef} className="philo-img-wrap reveal">
         <img
-          src="/catalog/t-shirts/IMG_1587.jpeg"
+          src={`${import.meta.env.BASE_URL}catalog/t-shirts/IMG_1587.jpeg`}
           alt="Философия бренда"
           loading="lazy"
         />
