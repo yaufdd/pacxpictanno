@@ -18,7 +18,7 @@ export default function Lookbook() {
       <div ref={gridRef} className="lookbook-grid reveal">
         {lookbookImages.map((item, i) => (
           <div key={i} className="lb-item">
-            <img src={item.src} alt={`Lookbook ${i + 1}`} loading="lazy" />
+            <img src={`${import.meta.env.BASE_URL}${item.src.replace(/^\//, '')}`} alt={`Lookbook ${i + 1}`} loading="lazy" />
             <div className="lb-hover-layer">
               <Link to={`/product/${item.productId}`} className="product-action">
                 Смотреть

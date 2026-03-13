@@ -32,7 +32,8 @@ export default function ProductPage() {
 
   const hasImages = product.images && product.images.length > 0
   const hasMultiple = product.images && product.images.length > 1
-  const currentSrc = hasImages ? product.images[activeIdx].src : product.image
+  const toUrl = (src) => `${import.meta.env.BASE_URL}${src.replace(/^\//, '')}`
+  const currentSrc = toUrl(hasImages ? product.images[activeIdx].src : product.image)
 
   const descLines = product.desc.split('\n').map((line, i) => (
     <span key={i}>{line}<br /></span>
@@ -104,7 +105,7 @@ export default function ProductPage() {
                   className={`img-thumb${activeIdx === i ? ' active' : ''}`}
                   onClick={() => setActiveIdx(i)}
                 >
-                  <img src={img.src} alt={img.label} />
+                  <img src={toUrl(img.src)} alt={img.label} />
                   <span>{img.label}</span>
                 </button>
               ))}

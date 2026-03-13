@@ -8,7 +8,7 @@ export default function ProductCard({ product, featured = false, delay = 0 }) {
     <div ref={ref} className={`product-card reveal${featured ? ' featured' : ''}`}>
       <div className="product-img-wrap">
         <img
-          src={product.image}
+          src={`${import.meta.env.BASE_URL}${product.image.replace(/^\//, '')}`}
           alt={product.name}
           loading="lazy"
         />

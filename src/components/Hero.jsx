@@ -3,7 +3,7 @@ export default function Hero() {
     <section id="hero">
       <div className="hero-img-side">
         <img
-          src="/catalog/switshot/IMG_1599.jpeg"
+          src={`${import.meta.env.BASE_URL}catalog/switshot/IMG_1599.jpeg`}
           alt="Расхристанно — коллекция"
         />
       </div>
